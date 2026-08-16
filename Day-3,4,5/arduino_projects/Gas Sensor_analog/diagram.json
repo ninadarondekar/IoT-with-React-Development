@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "author": "Ninad Arondekar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -112.5, "left": -60.2, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -80.4,
+      "left": 186.2,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "gas1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "gas1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "led1:C", "uno:GND.3", "black", [ "v0" ] ],
+    [ "led1:A", "uno:5", "red", [ "v86.4" ] ],
+    [ "gas1:AOUT", "uno:A5", "green", [ "h211.2", "v288.1" ] ]
+  ],
+  "dependencies": {}
+}
