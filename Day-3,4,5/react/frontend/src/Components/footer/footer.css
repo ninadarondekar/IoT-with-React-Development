@@ -1,0 +1,108 @@
+/* =========================================
+   Footer Global Styles
+   ========================================= */
+.footer {
+  background-color: #002244; /* Dark nautical blue matching other sections */
+  color: #d1e8ff; /* Light coastal blue for text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 4rem 5% 1.5rem;
+  margin-top: auto; /* Pushes footer to the bottom of the page */
+}
+
+/* =========================================
+   Footer Grid Layout
+   ========================================= */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+  padding-bottom: 2.5rem;
+}
+
+/* =========================================
+   Footer Headings
+   ========================================= */
+.footer-section h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+/* Custom underline matching the booking button */
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50px;
+  height: 3px;
+  background-color: #ff9900; 
+  border-radius: 2px;
+}
+
+/* =========================================
+   Footer Text & Links
+   ========================================= */
+.footer-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.footer-section.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section.links li {
+  margin-bottom: 1rem;
+}
+
+.footer-section.links a {
+  color: #d1e8ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-section.links a:hover {
+  color: #ff9900;
+  transform: translateX(5px); /* Small slide effect on hover */
+}
+
+/* =========================================
+   Footer Bottom (Copyright)
+   ========================================= */
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #8bb2c9;
+}
+
+/* =========================================
+   Responsive Design
+   ========================================= */
+@media (max-width: 768px) {
+  .footer-container {
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  /* Center the decorative underline on mobile */
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-section.links a:hover {
+    transform: none; /* Disable slide effect on mobile for better UX */
+    color: #ff9900;
+  }
+}

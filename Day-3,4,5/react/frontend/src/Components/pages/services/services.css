@@ -1,0 +1,175 @@
+/* =========================================
+   Global Services Page Styles
+   ========================================= */
+.services-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+/* =========================================
+   Services Hero Section
+   ========================================= */
+.services-hero {
+  background: linear-gradient(135deg, #004494 0%, #002244 100%);
+  height: 35vh;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.services-hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.services-hero-overlay p {
+  font-size: 1.2rem;
+  color: #d1e8ff;
+}
+
+/* =========================================
+   Pricing Section
+   ========================================= */
+.pricing-section {
+  padding: 4rem 5%;
+}
+
+.pricing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-grid {
+  display: grid;
+  /* Creates a responsive 3-column layout on desktop, 1-column on mobile */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* =========================================
+   Pricing Card Styles
+   ========================================= */
+.pricing-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Header colors for the 3 main packages */
+.pricing-header {
+  padding: 1.5rem 1rem;
+  color: #333;
+}
+.header-blue { background-color: #8bb2c9; }
+.header-sand { background-color: #d4c4ad; }
+.header-purple { background-color: #bfa8ce; }
+
+.pricing-header h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
+}
+
+.pricing-header .subtitle {
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.pricing-header .price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* =========================================
+   Pricing Body & Features List
+   ========================================= */
+.pricing-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.included-title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Remove bottom border from last item */
+.feature-list li:last-child {
+  border-bottom: none;
+}
+
+/* =========================================
+   Call To Action Button
+   ========================================= */
+.call-btn {
+  background-color: #cca45b; /* Gold/Bronze color matching your reference */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Pill shape */
+  padding: 12px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: auto;
+}
+
+.call-btn:hover {
+  background-color: #b58d4a;
+}
+
+/* =========================================
+   Responsive Design
+   ========================================= */
+@media (max-width: 768px) {
+  .services-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .pricing-section {
+    padding: 3rem 1rem;
+  }
+  
+  .pricing-card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+}

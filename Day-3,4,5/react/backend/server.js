@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const connectDB = require ('./config/db');
+require('dotenv').config();
+
+connectDB();
 
 // Define server-side routing
 app.get('/', (req, res) => {
@@ -10,6 +13,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.send("This is About page");
 });
+
+// .env file (no info visible)
+const port = process.env.PORT;
 
 // Run server on port number
 app.listen(port, () => {

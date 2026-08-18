@@ -1,37 +1,50 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './footer.css';
 
 const Footer = () => {
   return (
-    <>
-       <footer className="bg-cyan-700 text-white flex justify-around p-5">
-
-    <div className="parts">
-        <h3 className="text-2xl font-bold mb-3">About Us</h3>
-        <p className="text-lg">React learning website</p>
-    </div>
-
-    <div className="parts">
-        <h3 className="text-2xl font-bold mb-3">Quick Links</h3>
-
-        <div className="flex flex-col gap-2">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/contact">Contact</Link>
+    <footer className="footer">
+      <div className="footer-container">
+        
+        {/* About Section */}
+        <div className="footer-section about">
+          <h3>About Us</h3>
+          <p>
+            Amazing Boat Safari offers unforgettable coastal adventures, 
+            thrilling water sports, and relaxing boat tours in the beautiful 
+            waters of Malvan and the Sindhudurg coastline.
+          </p>
         </div>
-    </div>
 
-    <div className="parts">
-        <h3 className="text-2xl font-bold mb-3">Contact Us</h3>
-        <p>Email: example@gmail.com</p>
-        <p>Phone: 9876543210</p>
-    </div>
+        {/* Quick Links Section */}
+        <div className="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            {/* Kept your react-router-dom Links for faster navigation */}
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
 
-</footer>
-    </>
+        {/* Contact Section */}
+        <div className="footer-section contact">
+          <h3>Contact Us</h3>
+          <p>📍 Tarkarli, Malvan, Maharashtra</p>
+          <p>📧 info@amazingboatsafari.com</p>
+          <p>📞 +91-8766425373</p> 
+        </div>
 
-  )
-}
+      </div>
 
-export default Footer
+      {/* Copyright Bottom Bar */}
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Amazing Boat Safari. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
