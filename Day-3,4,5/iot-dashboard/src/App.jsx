@@ -1,13 +1,11 @@
-import React from 'react'
-// import Eventspage from './Components/Eventspage'
-import API from './Components/API'
-import './App.css'
+import React from 'react';
+import Dashboard from './Components/Dashboard';
+import './Components/Dashboard.css'
 
 const App = () => {
   return (
     <>
-      {/* <Eventspage /> */}
-      <API />
+      <Dashboard />
     </>
   )
 }

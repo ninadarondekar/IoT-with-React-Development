@@ -1,3 +1,4 @@
+// This is App.jsx
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './Components/pages/home/Home';

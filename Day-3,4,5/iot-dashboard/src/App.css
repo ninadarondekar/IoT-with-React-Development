@@ -1,9 +1,15 @@
+.users-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .user-card {
     border: 2px solid black;
     padding: 15px;
-    margin: 15px 0;
     width: 300px;
     border-radius: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .name {

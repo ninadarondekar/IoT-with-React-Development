@@ -29,23 +29,25 @@ const API = () => {
         <>
             <h1>Fetching Users</h1>
 
-            {data.map((item) => {
-                return (
-                    <div className="user-card" key={item.id}>
-                        <p className="name">
-                            Name: {item.name}
-                        </p>
+            <div className="users-container">
+                {data.map((item) => {
+                    return (
+                        <div className="user-card" key={item.id}>
+                            <p className="name">
+                                Name: {item.name}
+                            </p>
 
-                        <p className="username">
-                            Username: {item.username}
-                        </p>
+                            <p className="username">
+                                Username: {item.username}
+                            </p>
 
-                        <p className="email">
-                            Email: {item.email}
-                        </p>
-                    </div>
-                )
-            })}
+                            <p className="email">
+                                Email: {item.email}
+                            </p>
+                        </div>
+                    )
+                })}
+            </div>
         </>
     )
 }
