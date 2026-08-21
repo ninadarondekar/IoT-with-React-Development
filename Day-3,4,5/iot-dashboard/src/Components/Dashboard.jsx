@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { database } from '../Firebase';
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, set } from "firebase/database";
 import './Dashboard.css';
 
 
@@ -11,6 +11,7 @@ const Dashboard = () => {
         Temperature: 0,
         Humidity: 0,
         Gas: 0,
+        Buzzer: false,
     })
 
     useEffect(() => {
@@ -26,6 +27,7 @@ const Dashboard = () => {
                     Temperature: data.Temperature || 0,
                     Humidity: data.Humidity || 0,
                     Gas: data.Gas || 0,
+                    Buzzer: data.Buzzer || false,
                 })
             } else {
                 console.log("No data found at sensor")
@@ -34,6 +36,21 @@ const Dashboard = () => {
 
         return () => unsubscribe();
     }, []);
+
+
+    const toggleBuzzer = () => {
+        const newStatus = !sensor.Buzzer;
+
+        const buzzerRef = ref(database, "Sensor/Buzzer");
+
+        set(buzzerRef, newStatus)
+            .then(() => {
+                console.log("Buzzer:", newStatus ? "ON" : "OFF");
+            })
+            .catch((error) => {
+                console.log("Error updating buzzer:", error);
+            })
+    }
 
 
     return (
@@ -45,17 +62,12 @@ const Dashboard = () => {
 
                 <div className="logo">
                     <span className="logo-icon"></span>
-                    Smart IoT
+                    Smart IoT Dashboard
                 </div>
 
                 <nav>
                     <span className="active">Dashboard</span>
                 </nav>
-
-                <div className="connection">
-                    <span className="connection-dot"></span>
-                    Connected
-                </div>
 
             </header>
 
@@ -67,10 +79,6 @@ const Dashboard = () => {
                 <div>
                     <h1>Environmental Monitoring</h1>
                     <p>Real-time sensor data</p>
-                </div>
-
-                <div className="updated">
-                    Live Data
                 </div>
 
             </div>
@@ -96,11 +104,6 @@ const Dashboard = () => {
                                 <strong>{sensor.Temperature}</strong>
                                 <small>°C</small>
                             </div>
-                        </div>
-
-                        <div className="panel-status">
-                            <span className="status-dot"></span>
-                            Current Temperature
                         </div>
 
                     </div>
@@ -132,11 +135,6 @@ const Dashboard = () => {
                             ></div>
                         </div>
 
-                        <div className="panel-status">
-                            <span className="status-dot"></span>
-                            Current Humidity
-                        </div>
-
                     </div>
 
                 </div>
@@ -166,10 +164,37 @@ const Dashboard = () => {
                             ></div>
                         </div>
 
-                        <div className="panel-status">
-                            <span className="status-dot"></span>
-                            Current Gas Level
+                    </div>
+
+                </div>
+
+
+                {/* Buzzer */}
+
+                <div className="panel buzzer-panel">
+
+                    <div className="panel-header">
+                        <span>Buzzer</span>
+                    </div>
+
+                    <div className="buzzer-content">
+
+                        <div className="buzzer-status">
+                            <span>Status</span>
+
+                            <strong className={sensor.Buzzer ? "buzzer-on" : "buzzer-off"}>
+                                {sensor.Buzzer ? "ON" : "OFF"}
+                            </strong>
                         </div>
+
+                        <button
+                            className={sensor.Buzzer ? "buzzer-button off" : "buzzer-button"}
+                            onClick={toggleBuzzer}
+                        >
+                            {sensor.Buzzer
+                                ? "Turn OFF Buzzer"
+                                : "Turn ON Buzzer"}
+                        </button>
 
                     </div>
 
@@ -225,36 +250,6 @@ const Dashboard = () => {
                                 {sensor.Gas} PPM
                             </strong>
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                {/* System Status */}
-
-                <div className="panel system-panel">
-
-                    <div className="panel-header">
-                        <span>System Status</span>
-                    </div>
-
-                    <div className="system-status">
-
-                        <div className="system-row">
-                            <span>Firebase Connection</span>
-                            <span className="online">Online</span>
-                        </div>
-
-                        <div className="system-row">
-                            <span>Sensor Data</span>
-                            <span className="online">Receiving</span>
-                        </div>
-
-                        <div className="system-row">
-                            <span>Dashboard</span>
-                            <span className="online">Active</span>
                         </div>
 
                     </div>

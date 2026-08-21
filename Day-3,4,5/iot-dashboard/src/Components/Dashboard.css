@@ -28,7 +28,6 @@ body {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     padding: 0 35px;
 }
@@ -43,12 +42,15 @@ body {
 
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 9px;
 }
 
 .logo-icon {
-    font-size: 18px;
-    color: #39c463;
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background-color: #39c463;
 }
 
 
@@ -56,88 +58,48 @@ body {
 
 nav {
     height: 100%;
+    margin-left: 50px;
+
     display: flex;
     align-items: center;
-    gap: 5px;
 }
 
 nav span {
     height: 100%;
-    padding: 0 18px;
+    padding: 0 28px;
 
     display: flex;
     align-items: center;
 
-    font-size: 12px;
-    color: #777b7b;
-
-    cursor: pointer;
-}
-
-nav span:hover {
-    color: #dddddd;
+    font-size: 13px;
+    color: #ffffff;
 }
 
 nav .active {
-    color: #ffffff;
     background-color: #252828;
-}
-
-
-/* Connection */
-
-.connection {
-    font-size: 11px;
-    color: #8d9292;
-
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-
-.connection-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: #39c463;
 }
 
 
 /* Page Title */
 
 .page-title {
-    padding: 25px 35px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 35px 35px 25px;
 }
 
 .page-title h1 {
     margin: 0;
 
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
 
     color: #eeeeee;
 }
 
 .page-title p {
-    margin: 7px 0 0;
+    margin: 8px 0 0;
 
-    font-size: 12px;
+    font-size: 13px;
     color: #737878;
-}
-
-.updated {
-    font-size: 11px;
-    color: #39c463;
-
-    border: 1px solid #285a37;
-    background-color: #16251a;
-
-    padding: 7px 12px;
-    border-radius: 4px;
 }
 
 
@@ -147,10 +109,7 @@ nav .active {
     padding: 0 35px;
 
     display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-
-    grid-template-rows: auto auto;
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 10px;
 }
@@ -178,30 +137,18 @@ nav .active {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     font-size: 12px;
     color: #d1d3d3;
 }
 
-.menu {
-    color: #777b7b;
-    letter-spacing: 2px;
-}
-
 
 /* Temperature */
 
-.temperature-panel {
-    position: relative;
-}
-
 .temperature-content {
-    height: 165px;
+    height: 170px;
 
     display: flex;
-    flex-direction: column;
-
     align-items: center;
     justify-content: center;
 }
@@ -262,7 +209,7 @@ nav .active {
 /* Value Section */
 
 .value-section {
-    padding: 25px 20px;
+    padding: 35px 20px;
 }
 
 .large-value {
@@ -305,30 +252,82 @@ nav .active {
 }
 
 
-/* Status */
+/* Buzzer */
 
-.panel-status {
-    margin-top: 18px;
+.buzzer-panel {
+    min-height: 170px;
+}
+
+.buzzer-content {
+    padding: 24px 20px;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.buzzer-status {
+    display: flex;
+    flex-direction: column;
     gap: 7px;
-
-    font-size: 10px;
-    color: #777c7c;
 }
 
-.status-dot {
-    width: 6px;
-    height: 6px;
+.buzzer-status span {
+    font-size: 11px;
+    color: #858989;
+}
 
-    border-radius: 50%;
+.buzzer-status strong {
+    font-size: 22px;
+    font-weight: 500;
+}
 
+.buzzer-on {
+    color: #39c463;
+}
+
+.buzzer-off {
+    color: #d1d3d3;
+}
+
+
+/* Buzzer Button */
+
+.buzzer-button {
+    border: 1px solid #39c463;
+    border-radius: 4px;
+
+    background-color: #16251a;
+    color: #39c463;
+
+    padding: 11px 18px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.buzzer-button:hover {
     background-color: #39c463;
+    color: #111313;
+}
+
+.buzzer-button.off {
+    border-color: #555a5a;
+    background-color: #252828;
+    color: #dddddd;
+}
+
+.buzzer-button.off:hover {
+    background-color: #333737;
+    color: #ffffff;
 }
 
 
-/* Overview */
+/* Sensor Overview */
 
 .overview-panel {
     grid-column: span 2;
@@ -367,9 +366,13 @@ nav .active {
     color: #dddddd;
 }
 
+
+/* Sensor Indicators */
+
 .indicator {
     width: 7px;
     height: 7px;
+
     border-radius: 50%;
 }
 
@@ -383,120 +386,6 @@ nav .active {
 
 .indicator.gas {
     background-color: #d1a94c;
-}
-
-
-/* System Status */
-
-.system-panel {
-    grid-column: span 1;
-}
-
-.system-status {
-    padding: 10px 15px;
-}
-
-.system-row {
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-bottom: 1px solid #272a2a;
-
-    font-size: 11px;
-    color: #898e8e;
-}
-
-.system-row:last-child {
-    border-bottom: none;
-}
-
-.online {
-    color: #39c463;
-}
-
-/* Header */
-
-.header {
-    height: 58px;
-    background-color: #191b1b;
-    border-bottom: 1px solid #292c2c;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 35px;
-}
-
-
-/* Logo */
-
-.logo {
-    color: #39c463;
-    font-size: 16px;
-    font-weight: bold;
-
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.logo-icon {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background-color: #39c463;
-}
-
-
-/* Navigation */
-
-nav {
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-}
-
-nav span {
-    height: 100%;
-    padding: 0 28px;
-
-    display: flex;
-    align-items: center;
-
-    font-size: 13px;
-    color: #ffffff;
-}
-
-nav .active {
-    background-color: #252828;
-}
-
-
-/* Connection */
-
-.connection {
-    font-size: 12px;
-    color: #a0a5a5;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.connection-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background-color: #39c463;
 }
 
 
@@ -518,7 +407,6 @@ nav .active {
 
     .dashboard-grid {
         padding: 0 20px;
-
         grid-template-columns: 1fr;
     }
 
@@ -526,23 +414,27 @@ nav .active {
         grid-column: span 1;
     }
 
-    .system-panel {
-        grid-column: span 1;
+    .buzzer-content {
+        align-items: flex-start;
     }
 }
 
 
 @media (max-width: 500px) {
 
-    .connection {
-        display: none;
-    }
-
     .page-title h1 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .dashboard-grid {
         gap: 8px;
+    }
+
+    .buzzer-content {
+        flex-direction: column;
+    }
+
+    .buzzer-button {
+        width: 100%;
     }
 }
